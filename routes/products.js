@@ -12,7 +12,7 @@ const productsRoutes = (app, fs) => {
            
         });
 
-    // READ
+    // READ Products
     app.get('/products', (req, res) => {
             res.send(myProducts);
            
