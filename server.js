@@ -9,7 +9,17 @@ const http = require("http");
 const socketIo = require("socket.io");
 const axios = require("axios");
 const port = 3001 ; 
-
+////use of mogoose
+const dbConfig = require('./mongoose-config/mongo-config.js');
+const mongoose = require('mongoose');
+mongoose.connect(dbConfig.url,  { useNewUrlParser: true , useUnifiedTopology: true})
+.then(() => {
+    console.log("Successfully connected to MongoDB.");    
+}).catch(err => {
+    console.log('Could not connect to MongoDB.');
+    process.exit();
+});
+//**********************************************
 app.use(cors({
   origin: 'http://localhost:3000' 
 }));
